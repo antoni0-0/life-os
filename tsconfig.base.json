@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@repo/types/*": ["packages/types/*"],
+      "@repo/ui/*": ["packages/ui/*"],
+      "@repo/validation/*": ["packages/validation/*"]
+    }
+  }
+} 
