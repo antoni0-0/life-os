@@ -1,63 +1,73 @@
 'use client';
 
-import { ArrowRight, BadgeInfo, ChartNoAxesCombined } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight, BadgeInfo, ChartNoAxesCombined, LogIn } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export function Hero() {
-    return (
-        <div
-            className="w-full flex flex-col-reverse md:flex-row items-center justify-between mt-20 gap-8"
-        >
-            <motion.div
-                className="flex flex-col items-start justify-center max-w-[600px]"
-                initial={{ opacity: 0, y: 80 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-            >
-                <div className="text-primary text-sm flex items-center gap-1 bg-primary/10 rounded-xl px-3 py-1 font-bold mb-4">
-                    <ChartNoAxesCombined className="h-5" />
-                    <p>YOUR LIFE. UPGRADED.</p>
-                </div>
-                <h1 className="text-[42px] md:text-[55px] font-bold mb-6 leading-tight">
-                    The operating system for your <span className="bg-gradient-to-r from-primary-orange to-secondary-purple bg-clip-text text-transparent">
-                        best self
-                    </span>
-                </h1>
-                <h2 className="text-text-secondary text-base mb-8">
-                    life.os helps you build better habits, track your progress, and level up every day. Say goodbye to chaos and hello to a more organized, productive, and fulfilling life.
-                </h2>
-                <div className="flex gap-4 font-medium mb-2">
-                    <motion.button
-                        className="flex items-center gap-2 bg-gradient-to-r from-primary-orange to-secondary-purple text-white rounded-xl px-6 md:px-8 py-2 hover:brightness-110 active:scale-95 transform transition will-change-transform"
-                        whileHover={{
-                            scale: 1.05,
-                            boxShadow: `0 0 20px ${"white"}80`,
-                        }}
-                    >
-                        <p>Start Your Journey</p> <ArrowRight />
-                    </motion.button>
-                    <motion.button
-                        className="flex items-center gap-2 bg-surface border border-white/10 rounded-xl px-8 py-2 hover:border-white/30 active:scale-95 cursor-pointer"
-                        whileHover={{
-                            scale: 1.05,
-                            boxShadow: `0 0 50px ${"white"}80`,
-                        }}
-                    >
-                        <p>See How It Works</p> <BadgeInfo />
-                    </motion.button>
-                </div>
-                <h3 className="text-text-secondary text-sm">
-                    Free to start. Yours forever.
-                </h3>
-            </motion.div>
-            <motion.div
-                className="w-full md:w-auto flex items-center justify-center"
-                initial={{ opacity: 0, y: -80 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-            >
-                <img src="/assets/features.png" alt="Hero Image" className="max-w-[420px] md:max-w-[500px] rounded-xl" />
-            </motion.div>
+  return (
+    <section className="flex w-full flex-col-reverse items-center justify-between gap-8 pt-6 md:flex-row md:gap-10 md:pt-0">
+      <motion.div
+        className="flex w-full max-w-[600px] flex-col items-start justify-center px-1 sm:px-0"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <div className="mb-4 flex items-center gap-1 rounded-xl bg-primary/10 px-3 py-1 text-xs font-bold text-primary sm:text-sm">
+          <ChartNoAxesCombined className="h-4 w-4 sm:h-5 sm:w-5" />
+          <p>YOUR LIFE. UPGRADED.</p>
         </div>
-    );
+
+        <h1 className="mb-4 text-[2rem] font-bold leading-[1.15] sm:mb-6 sm:text-[2.5rem] md:text-[55px]">
+          The operating system for your{' '}
+          <span className="bg-gradient-to-r from-primary-orange to-secondary-purple bg-clip-text text-transparent">
+            best self
+          </span>
+        </h1>
+
+        <p className="mb-6 text-sm leading-relaxed text-text-secondary sm:mb-8 sm:text-base">
+          life.os helps you build better habits, track your progress, and level up every day. Say
+          goodbye to chaos and hello to a more organized, productive, and fulfilling life.
+        </p>
+
+        <div className="mb-2 flex w-full flex-col gap-3 font-medium sm:flex-row sm:gap-4">
+          <motion.button
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-orange to-secondary-purple px-6 py-3 text-sm text-white transition will-change-transform hover:brightness-110 active:scale-95 sm:w-auto sm:justify-start sm:px-8 sm:py-2 sm:text-base"
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 0 20px rgba(255,255,255,0.5)',
+            }}
+          >
+            <span>Start Your Journey</span>
+            <ArrowRight className="h-4 w-4" />
+          </motion.button>
+
+          <motion.button
+            className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/10 bg-surface px-6 py-3 text-sm transition hover:border-white/30 active:scale-95 sm:w-auto sm:justify-start sm:px-8 sm:py-2 sm:text-base"
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 0 50px rgba(255,255,255,0.5)',
+            }}
+          >
+            <span>Log In</span>
+            <LogIn className="h-4 w-4" />
+          </motion.button>
+        </div>
+
+        <p className="text-xs text-text-secondary sm:text-sm">Free to start. Yours forever.</p>
+      </motion.div>
+
+      <motion.div
+        className="flex w-full items-center justify-center md:w-auto"
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <img
+          src="/assets/features.png"
+          alt="life.os dashboard preview"
+          className="w-full max-w-[320px] rounded-xl sm:max-w-[380px] md:max-w-[500px]"
+        />
+      </motion.div>
+    </section>
+  );
 }

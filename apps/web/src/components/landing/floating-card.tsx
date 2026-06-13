@@ -1,37 +1,39 @@
 'use client';
 
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 export function FloatingCard() {
-    return (
-        <motion.div
-            className="flex items-center justify-between w-full max-w-[1200px] mb-6 bg-elevated/80 rounded-xl px-6 py-7 gap-6"
-            initial={{ opacity: 0, x: -80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-            <div className="flex flex-col items-start justify-center">
-                <h2 className="text-3xl font-bold">Ready to build your best life?</h2>
-                <p className="text-text-secondary text-xs mt-1">Join thousands of people leveling up their lives with life.os</p>
-            </div>
-            <motion.button
-                className="bg-primary text-text-primary hover:bg-primary/90 flex items-center gap-2 px-4 py-2 rounded-lg font-medium cursor-pointer"
-                animate={{
-                    boxShadow: [
-                        "0 0 10px #7C3AED",
-                        "0 0 30px #7C3AED",
-                        "0 0 10px #7C3AED",
-                    ],
-                }}
-                transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                }}
-            >
-                <span>Start for Free</span>
-                <ArrowRight />
-            </motion.button>
-        </motion.div>
-    );
+  return (
+    <motion.section
+      className="mb-8 flex w-full max-w-[1200px] flex-col items-stretch gap-5 rounded-xl bg-elevated/80 px-4 py-6 sm:mb-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-6 sm:py-7"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
+      <div className="flex flex-col items-start justify-center text-left">
+        <h2 className="text-xl font-bold leading-tight sm:text-2xl md:text-3xl">
+          Ready to build your best life?
+        </h2>
+        <p className="mt-1 text-xs text-text-secondary sm:text-sm">
+          Join thousands of people leveling up their lives with life.os
+        </p>
+      </div>
+
+      <motion.button
+        className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 font-medium text-text-primary hover:bg-primary/90 sm:w-auto sm:py-2"
+        animate={{
+          boxShadow: ['0 0 10px #7C3AED', '0 0 30px #7C3AED', '0 0 10px #7C3AED'],
+        }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+        }}
+      >
+        <span>Start for Free</span>
+        <ArrowRight className="h-4 w-4" />
+      </motion.button>
+    </motion.section>
+  );
 }
