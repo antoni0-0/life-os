@@ -17,8 +17,7 @@ async function bootstrap() {
   const port = Number(process.env.PORT) || 3001;
 
   await app.listen(port);
-
-  console.log('PORT ENV:', process.env.PORT);
+  
   console.log('Listening on:', port);
 }
 bootstrap();
