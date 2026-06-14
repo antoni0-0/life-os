@@ -17,7 +17,6 @@ export class AuthService {
 
   async register(data: any) {
     try {
-      console.log('Registering user', data);
     const existingUser = await this.prisma.user.findUnique({
       where: { email: data.email },
     });
@@ -41,6 +40,9 @@ export class AuthService {
 
       return this.generateTokens(user.id, user.email);
     } catch (error) {
+      if (error instanceof ConflictException) {
+        throw error;
+      }
       console.error('Failed to register user', error);
       throw new Error('Failed to register user');
     }
@@ -48,7 +50,6 @@ export class AuthService {
 
   async login(email: string, password: string) {
     try {
-      console.log('Logging in user', email);
     const user = await this.prisma.user.findUnique({
       where: { email },
     });
@@ -68,6 +69,9 @@ export class AuthService {
 
     return this.generateTokens(user.id, user.email);
     } catch (error) {
+      if (error instanceof UnauthorizedException) {
+        throw error;
+      }
       console.error('Failed to login user', error);
       throw new Error('Failed to login user');
     }
