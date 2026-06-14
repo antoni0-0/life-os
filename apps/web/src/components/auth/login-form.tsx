@@ -26,7 +26,7 @@ export function LoginForm() {
     try {
       const tokens = await login({ email, password });
       saveAuthTokens(tokens);
-      router.push('/');
+      router.push('/home');
     } catch (err) {
       if (err instanceof ApiError) {
         setError(err.message);

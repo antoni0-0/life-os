@@ -49,7 +49,7 @@ export function RegisterForm() {
         preferredName: form.preferredName,
       });
       saveAuthTokens(tokens);
-      router.push('/');
+      router.push('/home');
     } catch (err) {
       if (err instanceof ApiError) {
         setError(err.message);
