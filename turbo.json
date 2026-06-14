@@ -1,9 +1,21 @@
 {
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ]
     },
+    "globalEnv": [
+      "DATABASE_URL",
+      "JWT_ACCESS_SECRET",
+      "JWT_REFRESH_SECRET",
+      "JWT_ACCESS_EXPIRES",
+      "JWT_REFRESH_EXPIRES"
+    ],
     "dev": {
       "cache": false,
       "persistent": true
