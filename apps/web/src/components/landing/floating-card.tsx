@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -21,8 +22,7 @@ export function FloatingCard() {
         </p>
       </div>
 
-      <motion.button
-        className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 font-medium text-text-primary hover:bg-primary/90 sm:w-auto sm:py-2"
+      <motion.div
         animate={{
           boxShadow: ['0 0 10px #7C3AED', '0 0 30px #7C3AED', '0 0 10px #7C3AED'],
         }}
@@ -31,9 +31,14 @@ export function FloatingCard() {
           repeat: Infinity,
         }}
       >
-        <span>Start for Free</span>
-        <ArrowRight className="h-4 w-4" />
-      </motion.button>
+        <Link
+          href="/register"
+          className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 font-medium text-text-primary hover:bg-primary/90 sm:w-auto sm:py-2"
+        >
+          <span>Start for Free</span>
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </motion.div>
     </motion.section>
   );
 }

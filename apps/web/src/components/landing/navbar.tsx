@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -24,12 +25,12 @@ export function Navbar() {
         className="fixed top-0 z-50 w-full bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm lg:backdrop-blur-none"
       >
         <div className="flex w-full items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-          <div className="flex items-center">
+          <Link href="/" className="flex items-center transition hover:opacity-80">
             <img src="/logos/lifeos-logo.svg" alt="life.os" className="mr-2 h-9 w-9 sm:h-10 sm:w-10" />
             <h1 className="text-xl sm:text-2xl">
               life<span className="text-primary">.os</span>
             </h1>
-          </div>
+          </Link>
 
           <nav className="hidden items-center gap-8 lg:flex">
             {tabs.map((tab) => (
@@ -44,12 +45,18 @@ export function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-4 lg:flex">
-            <button className="cursor-pointer rounded-xl border border-white/10 bg-surface px-8 py-2 font-medium text-text-secondary transition hover:border-white/30 hover:text-text-primary active:scale-95">
+            <Link
+              href="/login"
+              className="cursor-pointer rounded-xl border border-white/10 bg-surface px-8 py-2 font-medium text-text-secondary transition hover:border-white/30 hover:text-text-primary active:scale-95"
+            >
               Log In
-            </button>
-            <button className="cursor-pointer rounded-xl bg-gradient-to-r from-primary-orange to-secondary-purple px-8 py-2 font-medium hover:brightness-110 active:scale-95">
+            </Link>
+            <Link
+              href="/register"
+              className="cursor-pointer rounded-xl bg-gradient-to-r from-primary-orange to-secondary-purple px-8 py-2 font-medium hover:brightness-110 active:scale-95"
+            >
               Get Started
-            </button>
+            </Link>
           </div>
 
           <button
@@ -91,18 +98,20 @@ export function Navbar() {
               ))}
 
               <div className="mt-2 flex flex-col gap-3 border-t border-white/10 pt-4">
-                <button
+                <Link
+                  href="/login"
                   onClick={() => setMenuOpen(false)}
-                  className="w-full rounded-xl border border-white/10 bg-elevated px-4 py-3 font-medium text-text-primary transition hover:border-white/30 active:scale-95"
+                  className="w-full rounded-xl border border-white/10 bg-elevated px-4 py-3 text-center font-medium text-text-primary transition hover:border-white/30 active:scale-95"
                 >
                   Log In
-                </button>
-                <button
+                </Link>
+                <Link
+                  href="/register"
                   onClick={() => setMenuOpen(false)}
-                  className="w-full rounded-xl bg-gradient-to-r from-primary-orange to-secondary-purple px-4 py-3 font-medium transition hover:brightness-110 active:scale-95"
+                  className="w-full rounded-xl bg-gradient-to-r from-primary-orange to-secondary-purple px-4 py-3 text-center font-medium transition hover:brightness-110 active:scale-95"
                 >
                   Get Started
-                </button>
+                </Link>
               </div>
             </nav>
           </>

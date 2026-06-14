@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { ArrowRight, BadgeInfo, ChartNoAxesCombined, LogIn } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -30,27 +31,25 @@ export function Hero() {
         </p>
 
         <div className="mb-2 flex w-full flex-col gap-3 font-medium sm:flex-row sm:gap-4">
-          <motion.button
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-orange to-secondary-purple px-6 py-3 text-sm text-white transition will-change-transform hover:brightness-110 active:scale-95 sm:w-auto sm:justify-start sm:px-8 sm:py-2 sm:text-base"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: '0 0 20px rgba(255,255,255,0.5)',
-            }}
-          >
-            <span>Start Your Journey</span>
-            <ArrowRight className="h-4 w-4" />
-          </motion.button>
+          <motion.div whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(255,255,255,0.5)' }}>
+            <Link
+              href="/register"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-orange to-secondary-purple px-6 py-3 text-sm text-white transition will-change-transform hover:brightness-110 active:scale-95 sm:w-auto sm:justify-start sm:px-8 sm:py-2 sm:text-base"
+            >
+              <span>Start Your Journey</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
 
-          <motion.button
-            className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/10 bg-surface px-6 py-3 text-sm transition hover:border-white/30 active:scale-95 sm:w-auto sm:justify-start sm:px-8 sm:py-2 sm:text-base"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: '0 0 50px rgba(255,255,255,0.5)',
-            }}
-          >
-            <span>Log In</span>
-            <LogIn className="h-4 w-4" />
-          </motion.button>
+          <motion.div whileHover={{ scale: 1.05, boxShadow: '0 0 50px rgba(255,255,255,0.5)' }}>
+            <Link
+              href="/login"
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/10 bg-surface px-6 py-3 text-sm transition hover:border-white/30 active:scale-95 sm:w-auto sm:justify-start sm:px-8 sm:py-2 sm:text-base"
+            >
+              <span>Log In</span>
+              <LogIn className="h-4 w-4" />
+            </Link>
+          </motion.div>
         </div>
 
         <p className="text-xs text-text-secondary sm:text-sm">Free to start. Yours forever.</p>
