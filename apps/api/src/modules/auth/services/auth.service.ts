@@ -16,6 +16,7 @@ export class AuthService {
   ) {}
 
   async register(data: any) {
+    try {
     const existingUser = await this.prisma.user.findUnique({
       where: { email: data.email },
     });
@@ -37,10 +38,15 @@ export class AuthService {
       },
     });
 
-    return this.generateTokens(user.id, user.email);
+      return this.generateTokens(user.id, user.email);
+    } catch (error) {
+      console.error('Failed to register user', error);
+      throw new Error('Failed to register user');
+    }
   }
 
   async login(email: string, password: string) {
+    try {
     const user = await this.prisma.user.findUnique({
       where: { email },
     });
@@ -59,6 +65,10 @@ export class AuthService {
     }
 
     return this.generateTokens(user.id, user.email);
+    } catch (error) {
+      console.error('Failed to login user', error);
+      throw new Error('Failed to login user');
+    }
   }
 
   private async generateTokens(userId: string, email: string) {
