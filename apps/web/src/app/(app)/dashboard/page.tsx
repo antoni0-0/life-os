@@ -4,7 +4,7 @@ import { ChartNoAxesCombined } from 'lucide-react';
 
 export default function DashboardPage() {
     return (
-        <>
+        <div className="flex min-h-screen flex-1 flex-col items-center justify-center px-4 pt-20 lg:pt-0">
             <h1 className="text-4xl font-bold">
                 Welcome to Life
                 <span className="bg-gradient-to-r from-primary-orange to-secondary-purple bg-clip-text text-transparent">
@@ -15,6 +15,6 @@ export default function DashboardPage() {
                 <ChartNoAxesCombined className="h-4 w-4 sm:h-5 sm:w-5" />
                 <p>YOUR LIFE. UPGRADED.</p>
             </div>
-        </>
+        </div>
     );
 }

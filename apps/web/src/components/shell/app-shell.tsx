@@ -52,7 +52,7 @@ export function AppShell({ children }: AppShellProps) {
             <motion.main
                 animate={{ paddingLeft: isDesktop && sidebarOpen ? SIDEBAR_WIDTH : 0 }}
                 transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-                className="flex min-h-screen flex-col items-center justify-center overflow-x-hidden bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.15),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(6,182,212,0.15),transparent_35%)] text-text-primary"
+                className="flex min-h-screen flex-col items-stretch justify-start overflow-x-hidden bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.15),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(6,182,212,0.15),transparent_35%)] pb-28 text-text-primary lg:pb-0"
             >
                 <AppNavbar
                     menuId={menuId}

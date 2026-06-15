@@ -1,5 +1,5 @@
-import { EcosystemPage } from '@/components/pages/ecosystem-page';
+import { HabitsPage } from '@/components/habits/habits-page';
 
-export default function HabitsPage() {
-    return <EcosystemPage title="Habits" />;
+export default function Page() {
+    return <HabitsPage />;
 }

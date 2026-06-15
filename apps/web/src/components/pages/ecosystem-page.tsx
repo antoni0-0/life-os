@@ -10,7 +10,8 @@ export function EcosystemPage({ title }: EcosystemPageProps) {
     const feature = ECOSYSTEM_FEATURES.find((f) => f.title === title)!;
 
     return (
-        <div className="flex flex-col items-center px-4 text-center">
+        <div className="flex min-h-screen flex-1 flex-col items-center justify-center px-4 pt-20 lg:pt-0">
+            <div className="flex flex-col items-center px-4 text-center">
             <img
                 src={feature.icon}
                 alt=""
@@ -22,6 +23,7 @@ export function EcosystemPage({ title }: EcosystemPageProps) {
             />
             <h1 className="text-4xl font-bold">{feature.title}</h1>
             <p className="mt-3 max-w-md text-text-secondary">{feature.description}</p>
+            </div>
         </div>
     );
 }

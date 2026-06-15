@@ -80,7 +80,7 @@ export function RegisterForm() {
             label="First name"
             name="firstName"
             autoComplete="given-name"
-            placeholder="Anton"
+            placeholder="Required"
             value={form.firstName}
             onChange={(event) => updateField('firstName', event.target.value)}
             required

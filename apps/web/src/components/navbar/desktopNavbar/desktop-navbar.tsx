@@ -118,7 +118,7 @@ export function DesktopNavbar({ menuId, isOpen, onToggle }: DesktopNavbarProps) 
                             N
                         </div>
                         <div className="flex-1 text-left">
-                            <p className="text-sm font-medium">Nicolás</p>
+                            <p className="text-sm font-medium">Nicolas</p>
                             <p className="text-xs text-text-secondary">Free Plan</p>
                         </div>
                         <ChevronRight className="h-4 w-4 text-text-secondary" />
@@ -136,10 +136,9 @@ export function DesktopNavbar({ menuId, isOpen, onToggle }: DesktopNavbarProps) 
                         transition={{ duration: 0.25, ease: 'easeOut' }}
                         onClick={onToggle}
                         aria-label="Show menu"
-                        className="fixed top-6 left-4 z-50 hidden items-center gap-2 rounded-xl border border-white/10 bg-surface/90 px-3 py-2 text-sm font-medium text-text-secondary shadow-lg backdrop-blur-md transition hover:border-primary/30 hover:text-text-primary lg:flex"
+                        className="fixed bottom-6 left-4 z-50 hidden items-center gap-2 rounded-xl border border-white/10 bg-surface/90 px-3 py-2 text-sm font-medium text-text-secondary shadow-lg backdrop-blur-md transition hover:border-primary/30 hover:text-text-primary lg:flex"
                     >
                         <PanelLeftOpen className="h-5 w-5" />
-                        <span>Menu</span>
                     </motion.button>
                 )}
             </AnimatePresence>
