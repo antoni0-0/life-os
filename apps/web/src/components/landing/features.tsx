@@ -1,46 +1,8 @@
 'use client';
 
+import { ECOSYSTEM_FEATURES } from '@/lib/ecosystem-features';
 import { ChartColumnIncreasing, TimerReset, Trophy } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-const features = [
-  {
-    icon: '/assets/habits-icon.png',
-    title: 'Habits',
-    description: 'Build habits that stick and track your streaks.',
-    color: '#7bfb5d',
-  },
-  {
-    icon: '/assets/goals-icon.png',
-    title: 'Goals',
-    description: 'Set meaningful goals and crush them step by step.',
-    color: '#ffd529',
-  },
-  {
-    icon: '/assets/health-icon.png',
-    title: 'Health',
-    description: 'Move, sleep, eat better and feel your best every day.',
-    color: '#ff84a7',
-  },
-  {
-    icon: '/assets/mind-icon.png',
-    title: 'Mind',
-    description: 'Improve focus, mindfulness and mental clarity.',
-    color: '#58c7f9',
-  },
-  {
-    icon: '/assets/skills-icon.png',
-    title: 'Skills',
-    description: 'Learn, practice and master new skills.',
-    color: '#c893f0',
-  },
-  {
-    icon: '/assets/finance-icon.png',
-    title: 'Finance',
-    description: 'Track your income, expenses and net worth.',
-    color: '#7bfb5d',
-  },
-];
 
 export function Features() {
   return (
@@ -58,7 +20,7 @@ export function Features() {
       </motion.div>
 
       <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3">
-        {features.map((feature, index) => (
+        {ECOSYSTEM_FEATURES.map((feature, index) => (
           <motion.article
             key={feature.title}
             className="flex flex-col items-start rounded-xl bg-surface p-5 sm:p-6"
