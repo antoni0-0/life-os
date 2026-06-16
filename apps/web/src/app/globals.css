@@ -18,7 +18,6 @@
   --color-text-secondary: #94A3B8;
 }
 
-/* Map legacy CSS variable names used by Tailwind config */
 :root {
   --background: var(--color-background);
   --surface: var(--color-surface);
@@ -39,7 +38,6 @@ body {
   @apply bg-background text-text-primary;
 }
 
-/* Small utility classes to ensure subtle rounded shadows and smooth transforms */
 .card-shadow {
   box-shadow: 0 10px 30px rgba(2,6,23,0.6);
 }

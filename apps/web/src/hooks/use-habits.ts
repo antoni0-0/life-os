@@ -29,6 +29,7 @@ export function useHabits() {
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
   const [hydrated, setHydrated] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
     setFilters(loadHabitsFilters());
@@ -98,7 +99,7 @@ export function useHabits() {
       cancelled = true;
       clearTimeout(timeout);
     };
-  }, [hydrated, filters]);
+  }, [hydrated, filters, reloadKey]);
 
   const selectedTask = useMemo(
     () =>
@@ -150,6 +151,7 @@ export function useHabits() {
       setSelectedTaskId(created.id);
       setIsCreateOpen(false);
       setFilters((current) => ({ ...current, page: 1 }));
+      setReloadKey((key) => key + 1);
     } catch (err) {
       setCreateError(err instanceof ApiError ? err.message : 'Unable to create habit. Please try again.');
     } finally {

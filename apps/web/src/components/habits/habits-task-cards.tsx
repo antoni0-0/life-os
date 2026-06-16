@@ -1,10 +1,13 @@
 import type { Task } from '@/types/tasks';
 import {
   formatTaskDate,
+  getAssigneeInitials,
+  getAssigneeName,
   getCategoryStyle,
+  getPriorityLabel,
+  getPriorityStyles,
   getStatusLabel,
   getStatusStyles,
-  getTaskDetailMeta,
 } from '@/lib/habits/task-display';
 import { ChevronRight } from 'lucide-react';
 
@@ -20,7 +23,6 @@ export function HabitsTaskCards({ tasks, selectedTaskId, onSelect }: HabitsTaskC
       {tasks.map((task) => {
         const category = getCategoryStyle(task.category);
         const statusStyle = getStatusStyles(task.status);
-        const meta = getTaskDetailMeta(task);
         const isSelected = selectedTaskId === task.id;
 
         return (
@@ -32,32 +34,56 @@ export function HabitsTaskCards({ tasks, selectedTaskId, onSelect }: HabitsTaskC
               isSelected ? 'border-primary/40 bg-primary/10' : 'border-white/5 bg-surface/80'
             }`}
           >
-            <div className="flex items-start gap-3">
-              <img
-                src={category.icon}
-                alt=""
-                className="h-10 w-10 shrink-0 rounded-lg"
-                style={{ backgroundColor: `${category.color}30`, boxShadow: `0 0 16px ${category.color}50` }}
-              />
-              <div className="min-w-0 flex-1">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <p className="font-medium">{task.title}</p>
-                    <p className="mt-0.5 text-xs text-text-secondary">{task.description}</p>
-                  </div>
-                  <ChevronRight className="h-4 w-4 shrink-0 text-text-secondary" />
-                </div>
-                <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
-                  <span className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 ${statusStyle.badge}`}>
+            <div className="flex items-start justify-between gap-2">
+              <p className="font-medium">{task.title}</p>
+              <ChevronRight className="h-4 w-4 shrink-0 text-text-secondary" />
+            </div>
+
+            <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
+              <div>
+                <dt className="text-text-secondary">Category</dt>
+                <dd className="mt-0.5 flex items-center gap-1.5 font-medium">
+                  <img src={category.icon} alt="" className="h-4 w-4 rounded" />
+                  {task.category}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-text-secondary">Assignee</dt>
+                <dd className="mt-0.5 flex items-center gap-1.5 font-medium">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-elevated text-[10px]">
+                    {getAssigneeInitials(task)}
+                  </span>
+                  {getAssigneeName(task)}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-text-secondary">Priority</dt>
+                <dd className="mt-1">
+                  <span
+                    className={`rounded-full border px-2 py-0.5 text-xs font-medium ${getPriorityStyles(task.priority)}`}
+                  >
+                    {getPriorityLabel(task.priority)}
+                  </span>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-text-secondary">Status</dt>
+                <dd className="mt-1">
+                  <span
+                    className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs ${statusStyle.badge}`}
+                  >
                     <span className={`h-1.5 w-1.5 rounded-full ${statusStyle.dot}`} />
                     {getStatusLabel(task.status)}
                   </span>
-                  <span className="text-text-secondary">🔥 {meta.currentStreak} days</span>
-                  <span className="text-text-secondary">{meta.frequency}</span>
-                </div>
-                <p className="mt-2 text-xs text-text-secondary">Created {formatTaskDate(task.createdAt)}</p>
+                </dd>
               </div>
-            </div>
+              <div className="col-span-2">
+                <dt className="text-text-secondary">Created</dt>
+                <dd className="mt-0.5 font-medium text-text-secondary">
+                  {formatTaskDate(task.createdAt)}
+                </dd>
+              </div>
+            </dl>
           </button>
         );
       })}
