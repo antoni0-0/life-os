@@ -77,15 +77,15 @@ export function Navbar() {
             <motion.button
               type="button"
               aria-label="Close menu"
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0}}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={() => setMenuOpen(false)}
-              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
             />
             <nav
-              className="fixed left-4 right-4 top-[4.5rem] z-50 flex flex-col gap-1 rounded-2xl border border-white/10 bg-surface/95 p-4 shadow-card backdrop-blur-md sm:left-6 sm:right-6 lg:hidden"
+              className="fixed left-4 right-4 top-[4.5rem] z-50 flex flex-col gap-1 rounded-2xl bg-surface p-4 shadow-card backdrop-blur-md sm:left-6 sm:right-6 lg:hidden"
             >
               {tabs.map((tab) => (
                 <button

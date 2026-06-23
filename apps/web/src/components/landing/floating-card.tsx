@@ -27,9 +27,10 @@ export function FloatingCard() {
           boxShadow: ['0 0 10px #7C3AED', '0 0 30px #7C3AED', '0 0 10px #7C3AED'],
         }}
         transition={{
-          duration: 1.5,
+          duration: 1,
           repeat: Infinity,
         }}
+        className="rounded-xl"
       >
         <Link
           href="/register"

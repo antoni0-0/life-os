@@ -23,7 +23,7 @@ export function Features() {
         {ECOSYSTEM_FEATURES.map((feature, index) => (
           <motion.article
             key={feature.title}
-            className="flex flex-col items-start rounded-xl bg-surface p-5 sm:p-6"
+            className="flex flex-col items-center rounded-xl bg-surface p-5 sm:p-6 sm:items-start"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
