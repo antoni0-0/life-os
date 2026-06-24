@@ -41,7 +41,7 @@ export function AppShell({ children }: AppShellProps) {
                 className="fixed top-0 z-50 w-full bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm lg:hidden"
             >
                 <div className="flex w-full items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-                    <Link href="/" className="flex items-center transition hover:opacity-80">
+                    <Link href="/dashboard" className="flex items-center transition hover:opacity-80">
                         <img src="/logos/lifeos-logo.svg" alt="life.os" className="mr-2 h-9 w-9 sm:h-10 sm:w-10" />
                         <h1 className="text-xl sm:text-2xl">
                             life<span className="text-primary">.os</span>
