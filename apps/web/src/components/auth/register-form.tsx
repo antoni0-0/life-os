@@ -9,10 +9,11 @@ import { AuthField } from '@/components/auth/auth-field';
 import { AuthShell } from '@/components/auth/auth-shell';
 import { register } from '@/lib/api/auth';
 import { ApiError } from '@/lib/api/client';
-import { saveAuthTokens } from '@/lib/auth/session';
+import { useAuth } from '@/providers/auth-provider';
 
 export function RegisterForm() {
   const router = useRouter();
+  const { signIn } = useAuth();
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -48,7 +49,7 @@ export function RegisterForm() {
         birthday: form.birthday,
         preferredName: form.preferredName,
       });
-      saveAuthTokens(tokens);
+      signIn(tokens);
       router.push('/dashboard');
     } catch (err) {
       if (err instanceof ApiError) {

@@ -1,7 +1,12 @@
 'use client';
 
+import { RequireAuth } from '@/components/auth/require-auth';
 import { AppShell } from '@/components/shell/app-shell';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
-    return <AppShell>{children}</AppShell>;
+    return (
+        <RequireAuth>
+            <AppShell>{children}</AppShell>
+        </RequireAuth>
+    );
 }

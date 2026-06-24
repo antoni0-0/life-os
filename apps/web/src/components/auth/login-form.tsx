@@ -9,10 +9,11 @@ import { AuthField } from '@/components/auth/auth-field';
 import { AuthShell } from '@/components/auth/auth-shell';
 import { login } from '@/lib/api/auth';
 import { ApiError } from '@/lib/api/client';
-import { saveAuthTokens } from '@/lib/auth/session';
+import { useAuth } from '@/providers/auth-provider';
 
 export function LoginForm() {
   const router = useRouter();
+  const { signIn } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -25,7 +26,7 @@ export function LoginForm() {
 
     try {
       const tokens = await login({ email, password });
-      saveAuthTokens(tokens);
+      signIn(tokens);
       router.push('/dashboard');
     } catch (err) {
       if (err instanceof ApiError) {
